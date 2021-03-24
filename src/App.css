@@ -72,7 +72,7 @@ li {
 
 .page-div {
   max-width: 1440px;
-  margin: 10.125rem auto 0;
+  margin: 0 auto;
 }
 
 .page-div h1 {
@@ -99,14 +99,14 @@ li {
   font-style: normal;
   line-height: 1.86;
   letter-spacing: normal;
-  margin: 1.438rem 2.5rem 10.688rem;
+  margin: 1.438rem 2.5rem 0;
   min-width: 22.5rem;
-  min-height: 14.188rem;
 }
 
 .page-header {
   color: #ffffff;
   display: flex;
+  margin: 10.125rem 0;
 }
 
 @media only screen and (max-width: 1440px) {
@@ -116,9 +116,6 @@ li {
 }
 
 @media only screen and (max-width: 1024px) {
-  .page-div {
-    margin-top: 4rem;
-  }
   .page-header {
     flex-direction: column;
   }
