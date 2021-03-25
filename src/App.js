@@ -1,14 +1,15 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-// import Page from './Components/Page';
 import Layout from './Components/Layout';
 
 function App() {
   const [data, setData] = useState(null);
-  const [currentPage, setCurrentPage] = useState(null);
+  const [currentPage, setCurrentPage] = useState("Industries");
   const [pageContent, setPageContent] = useState(null);
   const [pageTitle, setPageTitle] = useState(null);
+
+  const loaded = useRef(false);
 
   const url = './content.json';
   useEffect(() => {
@@ -16,21 +17,18 @@ function App() {
       .then(res => res.json())
       .then(data => {
         setData(data);
-        setCurrentPage("Industries");
+        loaded.current = true;
       })
       .catch(err => console.log(err))
   }, []);
 
-  useEffect((data) => {
-    updateContent(data);
-  }, [currentPage]);
-
-  const updateContent = () => {
-    if (data) {
+  useEffect(() => {
+    if (loaded.current) {
+      setCurrentPage(currentPage);
       setPageTitle(data.pages.filter(page => page.title === currentPage)[0].title);
-      setPageContent(data.pages.filter(page => page.title === currentPage)[0].blocks[0])
+      setPageContent(data.pages.filter(page => page.title === currentPage)[0].blocks[0]);
     }
-  }
+  }, [currentPage, data])
 
   return (
     <div className="App" style={{
