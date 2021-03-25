@@ -88,10 +88,6 @@ li {
   min-width: 38.25rem;
 }
 
-.page-subheader {
-  min-width: 35.5rem;
-}
-
 .page-div p {
   font-size: 0.875rem;
   font-weight: normal;
@@ -99,8 +95,8 @@ li {
   font-style: normal;
   line-height: 1.86;
   letter-spacing: normal;
-  margin: 1.438rem 2.5rem 0;
-  min-width: 22.5rem;
+  margin: 1.438rem 10rem 0 2.5rem;
+  max-width: 22.5rem;
 }
 
 .page-header {
@@ -127,7 +123,8 @@ li {
   .page-div p {
     min-width: 0;
     min-height: 0;
-    margin-left: 10px;
+    max-width: 100%;
+    margin: 1.438rem 10px 0;
   }
 }
 
